@@ -21,7 +21,10 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //Fortify::ignoreRoutes();
+        if (request()->is('admin/*')) {
+            config()->set('fortify.guard', 'admin');
+        }
     }
 
     /**
