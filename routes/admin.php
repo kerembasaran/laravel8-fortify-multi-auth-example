@@ -13,5 +13,9 @@ Route::prefix('admin')->name('admin.')->group(function (){
             $limiter ? 'throttle:' . $limiter : null,
         ]));
 
+    Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])
+        ->middleware('auth:admin')
+        ->name('logout');
+
     Route::view('/home', 'admin.home')->middleware('auth:admin')->name('home');
 });
