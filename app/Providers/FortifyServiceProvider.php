@@ -24,6 +24,7 @@ class FortifyServiceProvider extends ServiceProvider
         //Fortify::ignoreRoutes();
         if (request()->is('admin/*')) {
             config()->set('fortify.guard', 'admin');
+            config()->set('fortify.home', '/admin/home');
         }
     }
 
