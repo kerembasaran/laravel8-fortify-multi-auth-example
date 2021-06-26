@@ -12,4 +12,6 @@ Route::prefix('admin')->name('admin.')->group(function (){
             'guest:admin',
             $limiter ? 'throttle:' . $limiter : null,
         ]));
+
+    Route::view('/home', 'admin.home')->middleware('auth:admin')->name('home');
 });
