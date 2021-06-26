@@ -3,7 +3,7 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Http\Controllers\AuthenticatedSessionController;
 
 Route::prefix('admin')->name('admin.')->group(function (){
-    Route::view('/login', 'admin.auth.login')->name('login');
+    Route::view('/login', 'admin.auth.login')->middleware('guest:admin')->name('login');
 
     $limiter = config('fortify.limiters.login');
 
